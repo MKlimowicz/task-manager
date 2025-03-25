@@ -20,6 +20,7 @@ public class ProjectService {
   private final ProjectRepository projectRepository;
 
   public ProjectDTO createProject(ProjectCreateDTO dto) {
+
     if (projectRepository.existsByName(dto.name())) {
       throw new ProjectAlreadyExistsException(dto.name());
     }

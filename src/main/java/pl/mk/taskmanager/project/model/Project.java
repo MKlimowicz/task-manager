@@ -23,7 +23,13 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Project {
 
-  public Project(Long id, String name, String description, LocalDateTime createdAt, LocalDateTime deadline, ProjectStatus projectStatus) {
+  public Project(
+      Long id,
+      String name,
+      String description,
+      LocalDateTime createdAt,
+      LocalDateTime deadline,
+      ProjectStatus projectStatus) {
     this.status = projectStatus;
     this.deadline = deadline;
     this.createdAt = createdAt;

@@ -1,12 +1,11 @@
 package pl.mk.taskmanager.project.mapper;
 
+import java.time.LocalDateTime;
 import pl.mk.taskmanager.project.dto.ProjectCreateDTO;
 import pl.mk.taskmanager.project.dto.ProjectDTO;
 import pl.mk.taskmanager.project.dto.ProjectUpdateDTO;
 import pl.mk.taskmanager.project.model.Project;
 import pl.mk.taskmanager.project.model.ProjectStatus;
-
-import java.time.LocalDateTime;
 
 public class ProjectMapper {
 
@@ -14,6 +13,7 @@ public class ProjectMapper {
     return Project.builder()
         .name(dto.name())
         .description(dto.description())
+        .createdAt(dto.createdAt())
         .deadline(dto.deadline())
         .status(ProjectStatus.PLANNED)
         .build();
