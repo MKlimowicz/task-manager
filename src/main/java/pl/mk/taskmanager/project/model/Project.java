@@ -23,6 +23,15 @@ import lombok.NoArgsConstructor;
 @Builder
 public class Project {
 
+  public Project(Long id, String name, String description, LocalDateTime createdAt, LocalDateTime deadline, ProjectStatus projectStatus) {
+    this.status = projectStatus;
+    this.deadline = deadline;
+    this.createdAt = createdAt;
+    this.description = description;
+    this.name = name;
+    this.id = id;
+  }
+
   @Id
   @GeneratedValue(strategy = GenerationType.IDENTITY)
   private Long id;
