@@ -1,0 +1,42 @@
+<databaseChangeLog
+        xmlns="http://www.liquibase.org/xml/ns/dbchangelog"
+        xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:schemaLocation="http://www.liquibase.org/xml/ns/dbchangelog
+    https://www.liquibase.org/xml/ns/dbchangelog/dbchangelog-3.1.xsd">
+
+    <changeSet id="1-project-mklimowicz" author="mklimowicz">
+        <createTable tableName="project">
+            <column name="id" type="BIGINT" autoIncrement="true">
+                <constraints primaryKey="true" nullable="false" primaryKeyName="task_manager_project_pk"/>
+            </column>
+
+            <column name="name" type="VARCHAR(100)">
+                <constraints nullable="false" unique="true" uniqueConstraintName="task_manager_project_name_uk"/>
+            </column>
+
+            <column name="description" type="VARCHAR(500)"/>
+            <column name="updated_at" type="TIMESTAMP"/>
+
+            <column name="created_at" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="deadline" type="TIMESTAMP">
+                <constraints nullable="false"/>
+            </column>
+
+            <column name="status" type="VARCHAR(50)">
+                <constraints nullable="false"/>
+            </column>
+        </createTable>
+    </changeSet>
+
+    <changeSet id="2-project-mklimowicz" author="mklimowicz" context="dev">
+        <loadData
+                file="db/data/project-test-data.csv"
+                tableName="project"
+                separator=","
+                encoding="UTF-8"
+        />
+    </changeSet>
+</databaseChangeLog>
